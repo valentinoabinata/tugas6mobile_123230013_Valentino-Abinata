@@ -11,6 +11,10 @@ class CurrencyConverter {
 
     // 2. Lakukan perhitungan konversi via Base Currency (USD)
     double amountInBase = amount / rates[from]!;
-    return amountInBase * rates[to]!;
+    // Refactor: Mengubah return amountInBase * rates[to]!; menjadi dalam variabel result
+    double result = amountInBase * rates[to]!; 
+
+    // 3. Memastikan output rapi dengan maksimal 3 angka di belakang koma
+    return double.parse(result.toStringAsFixed(3));
   }
 }
